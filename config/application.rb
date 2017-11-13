@@ -13,7 +13,7 @@ module TestGuru
 
     # Custom settings:
     config.time_zone = "Moscow"
-    config.language = "Russian"
+    I18n.default_locale = :ru
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
