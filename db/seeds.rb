@@ -28,7 +28,7 @@ Answer.create([
 ])
 
 Test.create([
-  {title: 'Синтаксис Ruby', level: 0},
-  {title: 'DDL', level: 1},
-  {title: 'Теги', level: 0}
+  {title: 'Синтаксис Ruby', level: 0, category_id: 1},
+  {title: 'DDL', level: 1, category_id: 2},
+  {title: 'Теги', level: 0, category_id: 3}
 ])
