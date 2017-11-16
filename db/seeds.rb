@@ -32,3 +32,6 @@ Test.create([
   {title: 'DDL', level: 1, category_id: 2},
   {title: 'Теги', level: 0, category_id: 3}
 ])
+
+Test.find(1).users << User.find(1)
+Test.find(1).users << User.find(2)
