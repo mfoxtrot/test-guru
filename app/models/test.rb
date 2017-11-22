@@ -6,7 +6,17 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
   has_many :questions
 
+  scope :easy, -> { where(level: 0..1) }
+  scope :intermediate, -> { where(level: 2..4) }
+  scope :hard, -> { where(level: 5..Float::INFINITY) }
+  scope :by_level, -> (level) { where("level = ?", level) }
+  scope :by_category_title, -> (category_title){ joins(:category).where(categories: {title: category_title}).order("tests.title desc") }
+
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, greater_than: 0 }
+  validates :title, uniqueness: { scope: :level }
+
   def self.tests_titles_by_category(category_title)
-    Test.joins(:category).where(categories: {title: category_title}).order("tests.title desc").pluck(:title)
+    Test.by_category_title(category_title).pluck(:title)
   end
 end
