@@ -7,6 +7,6 @@ class Answer < ApplicationRecord
   validate :question_exceeded_answers_limit
 
   def question_exceeded_answers_limit
-    errors.add(:question, "Exceeded answers limit") if question.answers_count >= 4
+    errors.add(:question, "Exceeded answers limit") if question.answers_count >= ANSWERS_LIMIT_PER_QUESTION
   end
 end
