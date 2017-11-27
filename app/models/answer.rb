@@ -1,4 +1,6 @@
 class Answer < ApplicationRecord
+  ANSWERS_LIMIT_PER_QUESTION = 4
+
   belongs_to :question, counter_cache: true
 
   scope :correct, -> { where(correct: true) }

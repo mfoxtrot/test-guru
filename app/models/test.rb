@@ -6,10 +6,11 @@ class Test < ApplicationRecord
   has_many :users, through: :tests_users
   has_many :questions
 
-  scope :easy, -> { where(level: 0..1) }
-  scope :intermediate, -> { where(level: 2..4) }
-  scope :hard, -> { where(level: 5..Float::INFINITY) }
-  scope :by_level, -> (level) { where("level = ?", level) }
+  scope :by_level, -> (level) { where(level: level) }
+  scope :easy, -> { by_level(0..1) }
+  scope :intermediate, -> { by_level(2..4) }
+  scope :hard, -> { by_level(5..Float::INFINITY) }
+
   scope :by_category_title, -> (category_title){ joins(:category).where(categories: {title: category_title}).order("tests.title desc") }
 
   validates :title, presence: true
