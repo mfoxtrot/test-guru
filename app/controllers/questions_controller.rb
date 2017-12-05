@@ -36,9 +36,9 @@ class QuestionsController < ApplicationController
   end
 
   def generate_index_page
-    html_string = '<h1>Перечень вопросов:</h1>'
+    html_string = '<h1>Перечень вопросов:</h1><ul>'
     @test.questions.pluck(:body).each { |b| html_string << "<li>#{b}</li>" }
-    html_string << '<a href="/tests/2/questions/new">Добавить</a>'
+    html_string << '</ul><a href="/tests/2/questions/new">Добавить</a>'
     html_string
   end
 
