@@ -1,0 +1,26 @@
+<h2>Тест (id=<%= @test.id %>):</h2>
+<strong>Текст:</strong> <%= @test.title %>
+<br><strong>Уровень:</strong> <%= @test.level %>
+<h3>Вопросы:</h3>
+<table>
+  <thead>
+    <th>id</th>
+    <th>Текст</th>
+    <th>Кол-во<br>ответов</th>
+    <th>Действия</th>
+  </thead>
+  <tbody>
+    <% @test.questions.each do |q| %>
+      <tr>
+        <td><%= q.id %></td>
+        <td><%= q.body %></td>
+        <td><%= q.answers_count %></td>
+        <td>
+          <%= link_to "Просмотр", question_path(q) %><br>
+          <%= link_to "Редактирование", edit_question_path(q) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to "Новый вопрос", new_test_question_path(@test) %>

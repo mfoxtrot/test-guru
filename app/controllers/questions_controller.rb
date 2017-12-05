@@ -3,7 +3,6 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: [:show, :destroy]
 
   def index
-    render html: generate_index_page.html_safe
   end
 
   def show
