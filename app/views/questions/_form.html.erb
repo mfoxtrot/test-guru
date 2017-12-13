@@ -1,3 +1,4 @@
+<h1><%= question_header(@question.persisted?, params[:test_id]) %></h1>
 <%= form_with(model: [:test, @question], scope: :question) do |form| %>
 <%= form.label :body %>
 <%= form.text_field :body %><br>
