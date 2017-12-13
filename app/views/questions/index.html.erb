@@ -10,18 +10,7 @@
     <th>Действия</th>
   </thead>
   <tbody>
-    <% @test.questions.each do |q| %>
-      <tr>
-        <td><%= q.id %></td>
-        <td><%= q.body %></td>
-        <td><%= q.answers_count %></td>
-        <td>
-          <%= link_to 'Просмотр', question_path(q) %>
-          <%= link_to 'Редактирование', edit_question_path(q) %>
-          <%= link_to 'Удалить', question_path(q), method: :delete, data: {confirm: 'Подтвердите удаление'} %>
-        </td>
-      </tr>
-    <% end %>
+    <%= render partial: 'question', collection: @test.questions %>
   </tbody>
 </table>
 <%= link_to "Новый вопрос", new_test_question_path(@test) %>

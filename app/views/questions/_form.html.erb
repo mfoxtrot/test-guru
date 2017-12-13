@@ -1,7 +1,7 @@
-<%= form_with(model: @question, scope: :question) do |form| %>
+<%= form_with(model: [:test, @question], scope: :question) do |form| %>
 <%= form.label :body %>
 <%= form.text_field :body %><br>
 <%= form.label :test_id %>
 <%= form.text_field :test_id %><br>
-<%= form.submit %>
+<%= form.submit button_name %>
 <% end %>
