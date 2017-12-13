@@ -16,8 +16,9 @@
         <td><%= q.body %></td>
         <td><%= q.answers_count %></td>
         <td>
-          <%= link_to "Просмотр", question_path(q) %><br>
-          <%= link_to "Редактирование", edit_question_path(q) %>
+          <%= link_to 'Просмотр', question_path(q) %>
+          <%= link_to 'Редактирование', edit_question_path(q) %>
+          <%= link_to 'Удалить', question_path(q), method: :delete, data: {confirm: 'Подтвердите удаление'} %>
         </td>
       </tr>
     <% end %>
