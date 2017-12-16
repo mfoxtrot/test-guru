@@ -1,9 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_test, only: [:index, :create]
+  before_action :find_test, only: [:create, :new]
   before_action :find_question, only: [:show, :destroy, :edit, :update]
-
-  def index
-  end
 
   def show
   end
@@ -12,23 +9,29 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @question = @test.questions.new
   end
 
   def update
-    @question.update(question_params)
-    redirect_to test_questions_path(@test)
+    if @question.update(question_params)
+      redirect_to test_path(@question.test)
+    else
+      render :edit
+    end
   end
 
   def create
-    @test.questions.create(question_params)
-    redirect_to test_questions_path(@test)
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to test_path(@test)
+    else
+      render :new
+    end
   end
 
   def destroy
-    @test = @question.test
     @question.destroy
-    redirect_to test_questions_path(@test)
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -39,11 +42,10 @@ class QuestionsController < ApplicationController
 
   def find_question
     @question = Question.find(params[:id])
-    @test = @question.test
   end
 
   def question_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
 end

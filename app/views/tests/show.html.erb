@@ -14,4 +14,5 @@
     <%= render partial: 'question', collection: @test.questions %>
   </tbody>
 </table>
-<%= link_to "Новый вопрос", new_test_question_path(@test) %>
+<%= link_to "Новый вопрос", new_test_question_path(@test) %><br>
+<%= link_to "К списку тестов", tests_path() %>

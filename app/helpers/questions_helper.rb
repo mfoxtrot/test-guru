@@ -1,6 +1,6 @@
 module QuestionsHelper
-  def question_header(persisted_question, test_id)
-    action_title = persisted_question ? "Edit" : "Create new"
-    action_title << " #{Test.find(test_id).title} Question"
+  def question_header(question)
+    action_title = question.new_record? ? "Create new" : "Edit"
+    action_title << " #{question.test.title} Question"
   end
 end

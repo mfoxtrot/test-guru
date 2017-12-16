@@ -1,8 +1,7 @@
-<h1><%= question_header(@question.persisted?, params[:test_id]) %></h1>
-<%= form_with(model: [:test, @question], scope: :question) do |form| %>
+<h1><%= question_header(@question) %></h1>
+<%= form_with(model: [@test, @question], local: true) do |form| %>
+<%= render 'errors' %>
 <%= form.label :body %>
 <%= form.text_field :body %><br>
-<%= form.label :test_id %>
-<%= form.text_field :test_id %><br>
-<%= form.submit button_name %>
+<%= form.submit %>
 <% end %>
