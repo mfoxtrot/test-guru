@@ -1,0 +1,7 @@
+<h1><%= question_header(@question) %></h1>
+<%= form_with(model: [@test, @question], local: true) do |form| %>
+<%= render 'errors' %>
+<%= form.label :body %>
+<%= form.text_field :body %><br>
+<%= form.submit %>
+<% end %>
