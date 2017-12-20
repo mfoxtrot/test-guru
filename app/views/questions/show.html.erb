@@ -1,3 +1,8 @@
 <h1>Вопрос</h1>
 <p><strong>Текст вопроса:</strong><%= @question.body %></p>
+<h2>Варианты ответов</h2>
+<%= link_to "Новый вопрос", new_question_answer_path(@question) %>
+<ol>
+  <%= render @question.answers %>
+</ol>
 <p><%= link_to 'Список вопросов', tests_path %></p>
