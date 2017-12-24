@@ -1,6 +1,9 @@
 <h1>Доступные тесты:</h1>
 <ul>
   <% @tests.each do |test| %>
-  <li><%= link_to test.title, test_path(test) %></li>
+  <li>
+    <%= link_to test.title, test_path(test) %> |
+    <%= button_to 'Start', start_test_path(test) %>
+  </li>
   <% end %>
 </ul>
