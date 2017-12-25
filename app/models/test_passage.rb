@@ -6,6 +6,8 @@ class TestPassage < ApplicationRecord
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
+  MINIMUM_PERCENT_OF_PASSAGE = 0.85
+
   def accept!(answers_ids)
     if correct_answer?(answers_ids)
       self.correct_questions += 1
@@ -15,6 +17,17 @@ class TestPassage < ApplicationRecord
 
   def completed?
     current_question.nil?
+  end
+
+  def passed?
+    if completed?
+      if test.questions.count == 0
+        correct_questions_percent = 0
+      else
+        correct_question_percent = self.correct_questions / test.questions.count
+      end
+      correct_question_percent >= MINIMUM_PERCENT_OF_PASSAGE
+    end
   end
 
   private

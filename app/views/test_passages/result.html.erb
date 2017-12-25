@@ -1,1 +1,12 @@
 <h1>The <%= @test_passage.test.title %> Test was Completed!</h1>
+<p>
+  Your result:
+  <span class='<%= @test_passage.passed? ? 'passed' : 'failed' %>'> <%= @test_passage.correct_questions %></span>
+  correct <%= 'answer'.pluralize(@test_passage.correct_questions) %>
+</p>
+<p>
+  The test is <%= @test_passage.passed? ? 'passed': 'failed' %>
+</p>
+<p>
+  <%= link_to 'Tests list', tests_path %>
+</p>
