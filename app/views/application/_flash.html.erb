@@ -1,3 +1,5 @@
 <% if flash[:alert] %>
-  <%= content_tag :p, flash[:alert], class: 'flash alert' %>
+  <% flash.keys.each do |k| %>
+    <%= content_tag :p, flash[k], class: "flash #{k}" %>
+  <% end %>
 <% end %>

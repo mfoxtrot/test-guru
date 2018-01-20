@@ -1,6 +1,5 @@
 <%= form_with url: sessions_path, local: true do |form| %>
-  <%= render 'flash' %>
-  
+
   <p>
     <%= form.label :email %>
     <%= form.text_field :email, id: :email %>
