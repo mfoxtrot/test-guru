@@ -10,6 +10,9 @@
 
   <body>
     <main>
+      <% if logged_in? %>
+        <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru </p>
+      <% end %>
     <%= yield %>
   </main>
     <%= render 'footer' %>
