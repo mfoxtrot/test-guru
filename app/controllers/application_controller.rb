@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  
+
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   helper_method :current_user,
-                :logged_in?
+                :logged_in?,
+                :return_point
   private
 
   def record_not_found
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless current_user
+      set_return_point(request.url)
       redirect_to login_path
     end
   end
@@ -24,4 +26,13 @@ class ApplicationController < ActionController::Base
   def logged_in?
     current_user.present?
   end
+
+  def set_return_point(return_point)
+    session[:return_point] = return_point
+  end
+
+  def return_point
+    session[:return_point] || root_path
+  end
+
 end
