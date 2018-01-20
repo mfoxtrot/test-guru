@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user!
-
+  
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   helper_method :current_user,
@@ -16,8 +15,6 @@ class ApplicationController < ActionController::Base
     unless current_user
       redirect_to login_path
     end
-
-    cookies[:email] = current_user&.email
   end
 
   def current_user
