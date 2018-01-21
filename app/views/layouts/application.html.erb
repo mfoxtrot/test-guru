@@ -9,9 +9,11 @@
   </head>
 
   <body>
+    <%= render 'header' %>
     <main>
-    <%= yield %>
-  </main>
+      <%= render 'flash' %>
+      <%= yield %>
+    </main>
     <%= render 'footer' %>
   </body>
 </html>
