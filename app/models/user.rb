@@ -1,14 +1,20 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise  :database_authenticatable,
+          :registerable,
+          :recoverable,
+          :rememberable,
+          :trackable,
+          :validatable,
+          :confirmable
+
   #Taken from Devise.email_regexp
   EMAIL_REGEXP = /\A[^@\s]+@[^@\s]+\z/
 
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :authored_tests, class_name: "Test", foreign_key: "user_id"
-
-  has_secure_password
 
   validates :email, uniqueness: true
   validate :email_correct
