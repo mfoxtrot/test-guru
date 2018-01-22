@@ -1,9 +1,12 @@
-class TestsController < ApplicationController
+class Admin::TestsController < ApplicationController
   before_action :authenticate_user!, only: [:show, :start]
-  before_action :find_test, only: [:start]
+  before_action :find_test, only: [:show, :start]
 
   def index
     @tests = Test.all
+  end
+
+  def show
   end
 
   def start
@@ -15,6 +18,10 @@ class TestsController < ApplicationController
 
   def find_test
     @test = Test.find(params[:id])
+  end
+
+  def test_params
+    params.permit(:id)
   end
 
 end
