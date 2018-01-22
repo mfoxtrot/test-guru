@@ -1,5 +1,5 @@
-class Admin::TestsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :start]
+class Admin::TestsController < Admin::BaseController
+
   before_action :find_test, only: [:show, :start, :edit, :destroy, :update]
 
   def index
@@ -35,7 +35,7 @@ class Admin::TestsController < ApplicationController
   end
 
   def destroy
-    
+
   end
 
   def start
