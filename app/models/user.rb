@@ -26,4 +26,8 @@ class User < ApplicationRecord
   def email_correct
     errors.add(:email, "doesn't seem to be correct") unless email =~ EMAIL_REGEXP
   end
+
+  def admin?
+    false
+  end
 end
