@@ -10,9 +10,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    flash[:notice] = "Привет, #{params[:user][:first_name]}"
+  end
 
   # GET /resource/edit
   # def edit
