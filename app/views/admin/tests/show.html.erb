@@ -11,9 +11,9 @@
     <th>Действия</th>
   </thead>
   <tbody>
-    <%= render partial: 'questions/question', collection: @test.questions %>
+    <%= render partial: 'admin/questions/question', collection: @test.questions %>
   </tbody>
 </table>
 <%= link_to "Edit", edit_admin_test_path(@test) %><br>
-<%= link_to "Новый вопрос", new_test_question_path(@test) %><br>
+<%= link_to "Новый вопрос", new_admin_test_question_path(@test) %><br>
 <%= link_to "К списку тестов", admin_tests_path %>

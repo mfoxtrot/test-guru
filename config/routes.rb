@@ -17,9 +17,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :tests, only: :index do
-    resources :questions, shallow: true, except: :index do
-      resources :answers, shallow: true, except: :index
-    end
+    #resources :questions, shallow: true, except: :index do
+    #  resources :answers, shallow: true, except: :index
+    #end
 
     member do
       post :start
@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :tests
+    resources :tests do
+      resources :questions, shallow: true, except: :index
+    end
   end
 end
