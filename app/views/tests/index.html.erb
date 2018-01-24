@@ -2,7 +2,7 @@
 <ul>
   <% @tests.each do |test| %>
   <li>
-    <%= link_to test.title, test_path(test) %> |
+    <%= test.title %> |
     <%= button_to 'Start', start_test_path(test) %>
   </li>
   <% end %>

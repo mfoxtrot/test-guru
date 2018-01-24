@@ -1,0 +1,8 @@
+<h1>Вопрос</h1>
+<p><strong>Текст вопроса:</strong><%= @question.body %></p>
+<h2>Варианты ответов</h2>
+<%= link_to "Новый ответ", new_admin_question_answer_path(@question) %>
+<ol>
+  <%= render partial: 'admin/answers/answer', collection: @question.answers %>
+</ol>
+<p><%= link_to 'Список вопросов', admin_tests_path %></p>
