@@ -1,9 +1,9 @@
-<h1>Доступные тесты:</h1>
+<h1><%= t('.header') %></h1>
 <ul>
   <% @tests.each do |test| %>
   <li>
     <%= test.title %> |
-    <%= button_to 'Start', start_test_path(test) %>
+    <%= button_to t('.start'), start_test_path(test) %>
   </li>
   <% end %>
 </ul>

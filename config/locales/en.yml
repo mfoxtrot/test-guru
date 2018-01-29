@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+  tests:
+    index:
+      header: "Available tests"
+      start: "Start"
