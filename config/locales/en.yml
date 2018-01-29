@@ -36,3 +36,44 @@ en:
     index:
       header: "Available tests"
       start: "Start"
+
+  admin:
+    tests:
+      index:
+        header: "Available tests"
+        new_test: "New test"
+        title: "Title"
+        level: "Level"
+        questions: "Questions"
+        actions: "Actions"
+      test:
+        show_button: "Show"
+        edit_button: "Edit"
+        delete_button: "Delete"
+        delete_confirmation: "Are you sure?"
+        start_button: "Start"
+      edit:
+        header: "Edit %{title} test"
+        back: "Back"
+      new:
+        header: "New test"
+        back: "Back"
+      show:
+        header: "Test (id=%{id})"
+        body: "Body"
+        level: "Level"
+        questions_count: "Questions count"
+        questions: "Questions"
+        id: "Id"
+        text: "Text"
+        answers: "Answers"
+        actions: "Actions"
+        edit: "Edit"
+        new_question: "New question"
+        tests_list: "Tests list"
+    questions:
+      question:
+        show: "Show"
+        edit: "Edit"
+        delete: "Delete"
+        confirmation: "Are you sure?"

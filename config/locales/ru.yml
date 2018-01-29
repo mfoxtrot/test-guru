@@ -5,3 +5,44 @@ ru:
     index:
       header: "Доступные тесты"
       start: "Пройти"
+
+  admin:
+    tests:
+      index:
+        header: "Доступные тесты"
+        new_test: "Новый тест"
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросов"
+        actions: "Действия"
+      test:
+        show_button: "Показать"
+        edit_button: "Изменить"
+        delete_button: "Удалить"
+        delete_confirmation: "Вы уверены?"
+        start_button: "Пройти"
+      edit:
+        header: "Изменить тест %{title}"
+        back: "Назад"
+      new:
+        header: "Новый тест"
+        back: "Назад"
+      show:
+        header: "Тест (id=%{id})"
+        body: "Текст"
+        level: "Уровень"
+        questions_count: "Количество вопросов"
+        questions: "Вопросы"
+        id: "Id"
+        text: "Текст"
+        answers: "Ответов"
+        actions: "Действия"
+        edit: "Изменить"
+        new_question: "Новый вопрос"
+        tests_list: "Список тестов"
+    questions:
+      question:
+        show: "Показать"
+        edit: "Изменить"
+        delete: "Удалить"
+        confirmation: "Вы уверены?"

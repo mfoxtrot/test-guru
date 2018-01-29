@@ -1,19 +1,19 @@
-<h2>Тест (id=<%= @test.id %>):</h2>
-<strong>Текст:</strong> <%= @test.title %>
-<br><strong>Уровень:</strong> <%= @test.level %>
-<br><strong>Всего вопросов:</strong> <%= @test.questions.count %>
-<h3>Вопросы:</h3>
+<h2><%= t('.header', id: @test.id) %>:</h2>
+<strong><%= t('.body') %>:</strong> <%= @test.title %>
+<br><strong><%= t('.level') %>:</strong> <%= @test.level %>
+<br><strong><%= t('.questions_count') %>:</strong> <%= @test.questions.count %>
+<h3><%= t('.questions') %>:</h3>
 <table>
   <thead>
-    <th>id</th>
-    <th>Текст</th>
-    <th>Кол-во<br>ответов</th>
-    <th>Действия</th>
+    <th><%= t('.id') %></th>
+    <th><%= t('.text') %></th>
+    <th><%= t('.answers') %></th>
+    <th><%= t('.actions') %></th>
   </thead>
   <tbody>
     <%= render partial: 'admin/questions/question', collection: @test.questions %>
   </tbody>
 </table>
-<%= link_to "Edit", edit_admin_test_path(@test) %><br>
-<%= link_to "Новый вопрос", new_admin_test_question_path(@test) %><br>
-<%= link_to "К списку тестов", admin_tests_path %>
+<%= link_to t('.edit'), edit_admin_test_path(@test) %><br>
+<%= link_to t('.new_question'), new_admin_test_question_path(@test) %><br>
+<%= link_to t('.tests_list'), admin_tests_path %>
