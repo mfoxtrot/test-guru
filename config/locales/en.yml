@@ -32,6 +32,12 @@
 en:
   hello: "Hello world"
 
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} errors detected"
+        
   tests:
     index:
       header: "Available tests"
