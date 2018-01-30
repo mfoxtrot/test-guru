@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_url_options
+    I18n.locale != I18n.default_locale ? { lang: I18n.locale } : {}
+  end
+
   private
 
   def record_not_found
