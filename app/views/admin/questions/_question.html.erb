@@ -3,8 +3,8 @@
   <td><%= question.body %></td>
   <td><%= question.answers_count %></td>
   <td>
-    <%= link_to 'Просмотр', admin_question_path(question) %>
-    <%= link_to 'Редактирование', edit_admin_question_path(question) %>
-    <%= link_to 'Удалить', admin_question_path(question), method: :delete, data: {confirm: 'Подтвердите удаление'} %>
+    <%= link_to t('.show'), admin_question_path(question) %>
+    <%= link_to t('.edit'), edit_admin_question_path(question) %>
+    <%= link_to t('.delete'), admin_question_path(question), method: :delete, data: {confirm: t('.confirmation')} %>
   </td>
 </tr>
