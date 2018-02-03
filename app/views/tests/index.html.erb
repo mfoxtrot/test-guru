@@ -2,8 +2,8 @@
 <ul>
   <% @tests.each do |test| %>
   <li>
-    <%= test.title %> |
-    <%= button_to t('.start'), start_test_path(test) %>
+    <%= test.title %>
+    <%= button_to t('.start'), start_test_path(test), class: 'btn btn-secondary'%>
   </li>
   <% end %>
 </ul>
