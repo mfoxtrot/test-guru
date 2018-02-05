@@ -9,8 +9,8 @@ module ApplicationHelper
 
   def bootstrap_class_for(flash_type)
     {
-      alert: "alert alert-danger",
-      notice: "alert alert-info"
+      alert: "danger",
+      notice: "info"
     }[flash_type.to_sym]||""
   end
 end
