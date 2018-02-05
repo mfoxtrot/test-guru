@@ -14,5 +14,8 @@
   </p>
 <% end %>
 <p>
+  <%= link_to "Gist", gist_test_passage_path(@test_passage), method: :post %>
+</p>
+<p>
   Question <%= @test_passage.current_question_index %> from <%= @test_passage.number_of_questions %>
 </p>

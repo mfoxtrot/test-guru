@@ -22,9 +22,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :test_passages, only: [:show, :update, :result] do
+  resources :test_passages, only: [:show, :update, :result, :gist] do
     member do
       get :result
+      post :gist
     end
   end
 
