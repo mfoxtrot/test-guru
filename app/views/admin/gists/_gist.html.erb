@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to gist.question.body, question_path(gist.question) %></td>
+  <td><%= link_to gist.question.body[0..24], admin_question_path(gist.question) %></td>
   <td><%= gist.user.email %></td>
-  <td><%= gist.url %></td>
+  <td><%= link_to gist.url, gist.url, {target: '_blank'} %></td>
 </tr>
