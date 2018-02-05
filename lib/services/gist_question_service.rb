@@ -8,6 +8,5 @@ class GistQuestionService
 
   def call(params)
     response = @client.create_gist(params)
-    response.html_url
   end
 end
