@@ -19,6 +19,7 @@ class TestPassagesController < ApplicationController
 
   def gist
     gist_url = GistQuestionService.new.call(params_for_gist)
+    flash[:notice] = "<a target='_blank' href='#{gist_url}'>Gist</a> was created"
     redirect_to test_passage_path(@test_passage)
   end
 
