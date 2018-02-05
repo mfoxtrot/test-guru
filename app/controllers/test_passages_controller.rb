@@ -31,6 +31,8 @@ class TestPassagesController < ApplicationController
 
   def params_for_gist
     question = @test_passage.current_question
-    {description: '', public: true, files: {"'question_#{question.id}''": {content: question.answers.pluck(:body).join("\n")}}}
+    content = [question.body]
+    content << question.answers.pluck(:body)
+    {description: '', public: true, files: {"'question_#{question.id}''": {content: content.join("\n")}}}
   end
 end
