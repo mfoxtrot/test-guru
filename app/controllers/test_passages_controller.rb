@@ -18,7 +18,7 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    response = GistQuestionService.new.call(params_for_gist)
+    response = GistQuestionService.new(@test_passage).call
     flash[:notice] = "<a target='_blank' href='#{response.html_url}'>Gist</a> was created"
     Gist.create(question: @test_passage.current_question, user: current_user, url: response.html_url, hash_id: response.id)
     redirect_to test_passage_path(@test_passage)
@@ -30,10 +30,4 @@ class TestPassagesController < ApplicationController
     @test_passage = TestPassage.find(params[:id])
   end
 
-  def params_for_gist
-    question = @test_passage.current_question
-    content = [question.body]
-    content << question.answers.pluck(:body)
-    {description: '', public: true, files: {"'question_#{question.id}''": {content: content.join("\n")}}}
-  end
 end

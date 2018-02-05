@@ -54,3 +54,8 @@ ru:
         edit: "Изменить"
         delete: "Удалить"
         confirmation: "Вы уверены?"
+  lib:
+    services:
+      gist_question_service:
+        question_body: "Текст вопроса"
+        answers: "Варианты ответов"
