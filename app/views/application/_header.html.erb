@@ -3,6 +3,7 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       <% if current_user.admin? %>
+        <%= link_to 'Gists', admin_gists_path %>|
         <%= link_to admin_tests_path do %>
           <%= image_tag 'si-glyph-home-page.svg', size: '16' %>
         <% end %>

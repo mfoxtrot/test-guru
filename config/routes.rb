@@ -22,13 +22,16 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :test_passages, only: [:show, :update, :result] do
+  resources :test_passages, only: [:show, :update, :result, :gist] do
     member do
       get :result
+      post :gist
     end
   end
 
   namespace :admin do
+    resources :gists, only: [:index] 
+
     resources :tests do
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
