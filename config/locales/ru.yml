@@ -6,7 +6,9 @@ ru:
   tests:
     index:
       header: "Доступные тесты"
-      start: "Пройти"
+      test_name: "Название теста"
+    test:
+      start_button: "Пройти"
 
   shared:
     errors:
