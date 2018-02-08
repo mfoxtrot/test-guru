@@ -18,9 +18,13 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    response = GistQuestionService.new(@test_passage).call
-    flash[:notice] = "<a target='_blank' href='#{response.html_url}'>Gist</a> was created"
-    Gist.create(question: @test_passage.current_question, user: current_user, url: response.html_url, hash_id: response.id)
+    begin
+      response = GistQuestionService.new(@test_passage).call
+      flash[:notice] = "#{view_context.link_to t('.gist'), response.html_url, target: '_blank'} #{t('.was_created')}"
+      current_user.gists.create(question: @test_passage.current_question, url: response.html_url, hash_id: response.id)
+    rescue StandardError => e
+      flash[:alert] = e.to_s
+    end
     redirect_to test_passage_path(@test_passage)
   end
 
