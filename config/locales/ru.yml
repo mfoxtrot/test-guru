@@ -27,6 +27,8 @@ ru:
         level: "Уровень"
         questions: "Вопросов"
         actions: "Действия"
+      form_inline:
+        submit: "OK"
       test:
         show_button: "Показать"
         edit_button: "Изменить"
