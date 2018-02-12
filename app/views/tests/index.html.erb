@@ -1,9 +1,13 @@
-<h1><%= t('.header') %></h1>
-<ul>
-  <% @tests.each do |test| %>
-  <li>
-    <%= test.title %>
-    <%= button_to t('.start'), start_test_path(test), class: 'btn btn-secondary'%>
-  </li>
-  <% end %>
-</ul>
+<table class="table">
+  <thead class="thead">
+    <th class="sort-by-title pointer">
+      <%= t('.test_name') %>
+      <%= octicon 'arrow-up', class: 'text-success hide' %>
+      <%= octicon 'arrow-down', class: 'text-success hide' %>
+    </th>
+    <th></th>
+  </thead>
+  <tbody>
+    <%= render @tests %>
+  </tbody>
+</table>

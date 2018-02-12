@@ -43,7 +43,10 @@ en:
   tests:
     index:
       header: "Available tests"
-      start: "Start"
+      test_name: "Test name"
+    test:
+      start_button: "Start"
+
 
   admin:
     tests:
