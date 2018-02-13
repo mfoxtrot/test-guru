@@ -5,12 +5,12 @@ document.addEventListener('turbolinks:load', function() {
       for (var i=0; i< controls.length; i++) {
         controls[i].addEventListener('click', formInlineLinkHandler)
       }
-    }
 
-    errors = document.querySelector('.resource-errors')
-    if (errors) {
-      var resourceId = errors.dataset.resourceId
-      formInlineHandler(resourceId)
+      errors = document.querySelector('.resource-errors')
+      if (errors) {
+        var resourceId = errors.dataset.resourceId
+        formInlineHandler(resourceId)
+      }
     }
 })
 
@@ -18,12 +18,10 @@ function formInlineLinkHandler(){
   event.preventDefault()
 
   var testId = this.dataset.testId
-  console.log(testId)
   formInlineHandler(testId)
 }
 
 function formInlineHandler(testId) {
-  console.log(testId)
   var link = document.querySelector('.form-inline-link[data-test-id="' + testId + '"]')
   var testTitle = document.querySelector('.test-title[data-test-id="' + testId + '"]')
   var formInline = document.querySelector('.form-inline[data-test-id="' + testId + '"]')
