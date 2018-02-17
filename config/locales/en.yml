@@ -57,6 +57,8 @@ en:
         level: "Level"
         questions: "Questions"
         actions: "Actions"
+      form_inline:
+        submit: "OK"
       test:
         show_button: "Show"
         edit_button: "Edit"

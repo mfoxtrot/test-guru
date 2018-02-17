@@ -2,6 +2,9 @@
 <p>
   <%= link_to t('.new_test'), new_admin_test_path() %>
 </p>
+
+<%= render 'shared/errors', resource: @test %>
+
 <table class="table table-hover">
   <thead class="thead">
     <tr>
