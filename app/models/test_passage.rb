@@ -31,6 +31,10 @@ class TestPassage < ApplicationRecord
     test.questions.size
   end
 
+  def current_progress
+    current_question_index.to_f / number_of_questions * 100
+  end
+
   private
 
   def before_validation_set_next_question

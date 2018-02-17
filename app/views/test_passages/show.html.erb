@@ -2,8 +2,7 @@
 
 <%= content_tag :b,
     @test_passage.current_question.body,
-    class: 'question_body',
-    data: { progress: @test_passage.current_question_index.to_f / @test_passage.number_of_questions * 100 } %>
+    class: 'question_body' %>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |f| %>
   <%= f.collection_check_boxes :answers_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
   <p>
@@ -21,7 +20,11 @@
 <p>
   Question <%= @test_passage.current_question_index %> from <%= @test_passage.number_of_questions %>
 </p>
-<div class="progressbar">
+<%= content_tag :div, class: 'progressbar', data: { progress: @test_passage.current_progress } do %>
   <span class="progressbar_label">
   </span>
-</div>
+<% end %>
+<!-- HTML5 progress example:
+<%= content_tag :progress, value: @test_passage.current_progress, max: 100 do %>
+  <%= @test_passage.current_progress %>
+<% end %>-->
