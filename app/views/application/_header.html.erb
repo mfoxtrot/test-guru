@@ -3,9 +3,14 @@
   <span class="navbar-text">
     <% if user_signed_in? %>
       <% if current_user.admin? %>
-        <%= link_to 'Gists', admin_gists_path %>|
+        <%= link_to admin_gists_path do %>
+          <%= octicon 'logo-gist' %>
+        <% end %>
         <%= link_to admin_tests_path do %>
-          <%= image_tag 'si-glyph-home-page.svg', size: '16' %>
+          <%= octicon 'home' %>
+        <% end %>
+        <%= link_to feedback_new_path do %>
+          <%= octicon 'mail' %>
         <% end %>
       <% end %>
       Welcome, <b><%= current_user.email %></b> Guru

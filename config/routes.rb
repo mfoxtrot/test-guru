@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'tests/index'
   get 'tests/show'
 
+  get 'feedback/new'
+  post 'feedback/sendmessage'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :tests, only: :index do
