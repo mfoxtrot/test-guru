@@ -3,7 +3,7 @@ class FeedbackController < ApplicationController
 
   def sendmessage
     begin
-      FeedbackMailer.message_email(current_user, params[:message])
+      FeedbackMailer.message_email(current_user, params[:message]).deliver_now
       flash[:notice] = "Сообщение успешно отправлено"
     rescue StandardError => e
       flash[:alert] = e.to_s
