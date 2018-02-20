@@ -13,6 +13,11 @@
     </p>
 
     <p>
+      <%= form.label :passage_time %><br>
+      <%= form.number_field :passage_time, id: :passage_time, class: 'form-control' %>
+    </p>
+
+    <p>
       <%= form.label :category_id %><br>
       <%= form.collection_select :category_id, Category.all, :id, :title, {prompt: true}, {class: 'form-control'} %>
     </p>

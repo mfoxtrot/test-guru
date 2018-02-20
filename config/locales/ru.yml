@@ -26,6 +26,7 @@ ru:
         title: "Название"
         level: "Уровень"
         questions: "Вопросов"
+        passage_time: "Время прохождения(сек)"
         actions: "Действия"
       form_inline:
         submit: "OK"

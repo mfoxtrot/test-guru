@@ -56,6 +56,7 @@ en:
         title: "Title"
         level: "Level"
         questions: "Questions"
+        passage_time: "Passage time(secs)"
         actions: "Actions"
       form_inline:
         submit: "OK"
