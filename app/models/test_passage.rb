@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question, on: [:create, :update]
+  before_create :set_starting_time
 
   MINIMUM_PERCENT_OF_PASSAGE = 0.85
 
@@ -57,5 +58,9 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.nil? ? 0: current_question.id).first
+  end
+
+  def set_starting_time
+    self.start_time = Time.current
   end
 end

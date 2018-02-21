@@ -6,6 +6,8 @@ class TestPassagesController < ApplicationController
   end
 
   def result
+    @test_passage.end_time = Time.current
+    @test_passage.save
   end
 
   def update
