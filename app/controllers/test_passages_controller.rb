@@ -9,11 +9,15 @@ class TestPassagesController < ApplicationController
   end
 
   def update
-    @test_passage.accept!(params[:answers_ids])
-    if @test_passage.completed?
+    if @test_passage.remaining_time <= 0
       redirect_to result_test_passage_path(@test_passage)
     else
-      render :show
+      @test_passage.accept!(params[:answers_ids])
+      if @test_passage.completed?
+        redirect_to result_test_passage_path(@test_passage)
+      else
+        render :show
+      end
     end
   end
 

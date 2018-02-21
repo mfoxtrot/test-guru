@@ -35,6 +35,10 @@ class TestPassage < ApplicationRecord
     current_question_index.to_f / number_of_questions * 100
   end
 
+  def remaining_time
+    (self.test.passage_time - (Time.current - self.created_at).seconds).to_i
+  end
+
   private
 
   def before_validation_set_next_question
