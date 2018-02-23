@@ -40,6 +40,11 @@ class TestPassage < ApplicationRecord
     (self.test.passage_time - (Time.current - self.created_at).seconds).to_i
   end
 
+  def finish!
+    self.end_time = Time.current
+    self.save
+  end
+
   private
 
   def before_validation_set_next_question
