@@ -20,7 +20,6 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    correct_question_percent = self.correct_questions / test.questions.count
     true if passed_minimum_percent_condition? && passed_time_condition?
   end
 
@@ -70,14 +69,16 @@ class TestPassage < ApplicationRecord
   end
 
   def passed_minimum_percent_condition?
+    correct_question_percent = self.correct_questions / test.questions.count
     correct_question_percent >= MINIMUM_PERCENT_OF_PASSAGE
   end
 
   def passed_time_condition?
-    if self.test.with_time_limit?
-      ((self.end_time - self.start_time) * 24 * 60 * 60) <= self.test.passage_time
+    if test.with_time_limit?
+      (end_time - start_time) <= test.passage_time
     else
       true
     end
   end
+
 end
