@@ -15,6 +15,10 @@
         <%= link_to admin_badges_path do %>
           <%= octicon 'star' %>
         <% end %>
+      <% else %>
+        <%= link_to achievements_path do %>
+          <%= octicon 'star' %>
+        <% end %>
       <% end %>
       Welcome, <b><%= current_user.email %></b> Guru
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
