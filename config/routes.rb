@@ -35,6 +35,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :gists, only: [:index]
 
+    resources :badges
+
     resources :tests do
       patch :update_inline, on: :member
 
