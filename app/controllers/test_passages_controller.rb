@@ -7,6 +7,9 @@ class TestPassagesController < ApplicationController
 
   def result
     @test_passage.finish!
+    new_badges = CheckAchievements.new(@test_passage).call
+    current_user.badges << new_badges
+    flash[:notice] = "You have #{new_badges.count} new badges" if new_badges.count > 0
   end
 
   def update
