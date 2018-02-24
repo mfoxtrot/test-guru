@@ -1,5 +1,13 @@
 <h1>Passing the <%= @test_passage.test.title %> Test</h1>
 
+<% if @test_passage.test.with_time_limit? %>
+  <%= content_tag :div,
+      class: 'timer',
+      data: { remaining_time: @test_passage.remaining_time } do %>
+    <%= content_tag :span, nil, class: 'timer_label' %>
+  <% end %>
+<% end %>
+
 <%= content_tag :b,
     @test_passage.current_question.body,
     class: 'question_body' %>

@@ -4,6 +4,7 @@ class TestPassage < ApplicationRecord
   belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_next_question, on: [:create, :update]
+  before_create :set_starting_time
 
   MINIMUM_PERCENT_OF_PASSAGE = 0.85
 
@@ -19,8 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def passed?
-    correct_question_percent = self.correct_questions / test.questions.count
-    true if correct_question_percent >= MINIMUM_PERCENT_OF_PASSAGE
+    true if passed_minimum_percent_condition? && passed_time_condition?
   end
 
   def current_question_index
@@ -33,6 +33,15 @@ class TestPassage < ApplicationRecord
 
   def current_progress
     current_question_index.to_f / number_of_questions * 100
+  end
+
+  def remaining_time
+    (self.test.passage_time - (Time.current - self.created_at).seconds).to_i
+  end
+
+  def finish!
+    self.end_time = Time.current
+    self.save
   end
 
   private
@@ -54,4 +63,22 @@ class TestPassage < ApplicationRecord
   def next_question
     test.questions.order(:id).where('id > ?', current_question.nil? ? 0: current_question.id).first
   end
+
+  def set_starting_time
+    self.start_time = Time.current
+  end
+
+  def passed_minimum_percent_condition?
+    correct_question_percent = self.correct_questions / test.questions.count
+    correct_question_percent >= MINIMUM_PERCENT_OF_PASSAGE
+  end
+
+  def passed_time_condition?
+    if test.with_time_limit?
+      (end_time - start_time) <= test.passage_time
+    else
+      true
+    end
+  end
+
 end
