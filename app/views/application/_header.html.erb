@@ -12,8 +12,14 @@
         <%= link_to feedback_new_path do %>
           <%= octicon 'mail' %>
         <% end %>
+        <%= link_to admin_badges_path do %>
+          <%= octicon 'star' %>
+        <% end %>
       <% end %>
-      Welcome, <b><%= current_user.email %></b> Guru
+      <%= link_to achievements_path do %>
+        <%= octicon 'flame' %>
+      <% end %>
+      Welcome, <b><%= current_user.email %></b> Guru      
       <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Signup', new_user_registration_path %>
