@@ -1,6 +1,6 @@
 class Badge < ApplicationRecord
 
-  BADGE_METHODS_AND_NAMES = [
+  RULE_TYPES = [
     'all_tests_at_category',
     'passing_test_at_first_attempt',
     'all_tests_at_level'
@@ -12,7 +12,7 @@ class Badge < ApplicationRecord
   validates :badge_image, presence: true
 
   def self.rules
-    BADGE_METHODS_AND_NAMES
+    RULE_TYPES
   end
 
 end

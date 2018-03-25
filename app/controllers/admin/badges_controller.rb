@@ -1,7 +1,5 @@
 class Admin::BadgesController < Admin::BaseController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
-  before_action :set_badge_rules_list, only: [:edit, :update, :new]
-  before_action :set_octicons_list, only: [:edit, :update, :new]
 
   def index
     @badges = Badge.all
@@ -46,13 +44,5 @@ class Admin::BadgesController < Admin::BaseController
 
     def badge_params
       params.require(:badge).permit(:name, :rule_name, :rule_parameter, :badge_image)
-    end
-
-    def set_badge_rules_list
-      @rules = Badge.rules
-    end
-
-    def set_octicons_list
-      @octicons_list = Octicons::OCTICON_SYMBOLS.keys
     end
 end

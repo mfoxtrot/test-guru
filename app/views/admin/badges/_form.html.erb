@@ -9,22 +9,17 @@
 
     <p>
       <%= form.label :rule_name %><br>
-      <%= form.select :rule_name, @rules, {prompt: true}, {class: 'form-control'} %>
+      <%= form.select :rule_name, Badge.rules, {prompt: true}, {class: 'form-control'} %>
     </p>
 
     <p>
       <%= form.label :rule_parameter %><br>
       <%= form.text_field :rule_parameter, id: :rule_parameter, class: 'form-control' %>
     </p>
-<!--
+
     <p>
       <%= form.label :badge_image %><br>
-      <%= form.text_field :badge_image, id: :badge_image, class: 'form-control' %>
-    </p>
--->
-    <p>
-      <%= form.label :badge_image %><br>
-      <%= form.select :badge_image, @octicons_list, {prompt: true}, {class: 'form-control'} %>
+      <%= form.select :badge_image, Octicons::OCTICON_SYMBOLS.keys, {prompt: true}, {class: 'form-control'} %>
     </p>
 
     <%= form.submit class: 'btn btn-primary' %>
